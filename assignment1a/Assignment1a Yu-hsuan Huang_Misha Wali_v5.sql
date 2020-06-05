@@ -47,7 +47,7 @@ CREATE TABLE class_registration (
 	course_title		VARCHAR(100) NOT NULL, -- Course title 
 	campus				VARCHAR(20) DEFAULT 'Barrie',
 	credits 			FLOAT(3, 2) NOT NULL,
-	capacity			SMALLINT UNSIGNED DEFAULT 500, -- capacity of this course
+	capacity			SMALLINT UNSIGNED DEFAULT 500, -- capacity of this course (I know it doesn't make sense but it seems no any fields need integer type in class registration)
 	day_of_week			ENUM('Mon', 'Tues', 'Wed', 'Thur', 'Fri'),
 	date_of_start		DATE,
 	date_of_end			DATE,
@@ -71,7 +71,7 @@ VALUE
 	('11260', 'COMP', '1008', 'Intro Obj Oriented Prog-Java', NULL, 3.00, 1500, 'Wed', '2020-05-20', '2020-08-05', 'Online', 'Radhika Sharma');
 # Record 6.
 INSERT INTO class_registration (course_id, course_code, course_number, course_title, credits, capacity, day_of_week, date_of_start, date_of_end, classroom, instructor_name)
-	VALUE (123, 'COMP', '1006', 'Intro to Web Prog using PHP', 3.00, 50, 'Thur', '2020-05-21', '2020-08-06', 'Online', 'Albert Villaruz');
+	VALUE ('12345', 'COMP', '1006', 'Intro to Web Prog using PHP', 3.00, 50, 'Thur', '2020-05-21', '2020-08-06', 'Online', 'Albert Villaruz');
 # Record 7-11
 INSERT INTO class_registration (course_id, course_code, course_number, course_title, campus, credits, capacity, day_of_week, instructor_name)
 VALUES

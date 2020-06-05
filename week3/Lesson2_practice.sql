@@ -60,9 +60,56 @@ Note: If column names are not mentioned, then all information needs to be displa
 
 */
 
+# 1)	Select the drinks whose name starts with an ‘O’ and those that start with a ‘P’.
+SELECT * 
+FROM tbl_drinks
+WHERE drink_name LIKE 'O%' OR drink_name LIKE 'P%';
 
+# 2)	Select the drink name of all the drinks that have more than 20 carbs and contain ice.
+SELECT * 
+FROM tbl_drinks
+WHERE carbs_grams > 20 AND drink_has_ice = 'Yes';
 
+# 3)	Select all drinks that have no defined calorie information. 
+SELECT * 
+FROM tbl_drinks
+WHERE calories IS NULL;
 
+# 4)	Select the name, cost, carbs and calories of all drinks that do not contain ice, using the ‘NOT’ boolean operator.
+SELECT drink_name AS 'name', drink_cost 'cost', carbs_grams carbs, calories
+FROM tbl_drinks
+WHERE NOT drink_has_ice = 'Yes';
 
+# 5)	Select the name and cost of all the drinks that have carbs in the range 5 to 10 grams, inclusive, WITHOUT the use of BETWEEN verb. Display Drink Name and Price($) as the column headings respectively.
+SELECT drink_name 'Drink Name', drink_cost 'Price($)'
+FROM tbl_drinks
+WHERE carbs_grams > 5 AND carbs_grams < 10;
 
+# 6)	Select all drinks whose name begin with the letters I, J, K or L using the BETWEEN verb. Sort the records in descending order by drink name. 
+SELECT *
+FROM tbl_drinks
+WHERE LEFT(drink_name, 1) BETWEEN 'I' AND 'L'
+ORDER BY drink_name DESC;
 
+# 7)	Use the IN verb to select all drinks that are either blue or purple in color. Sort the records in ascending order by drink name. 
+SELECT *
+FROM tbl_drinks
+WHERE drink_color IN ('Blue', 'Purple')
+ORDER BY drink_name;
+
+# 8)	Use an inbuilt string function to display the records for drinks whose drink name starts with the letter Z.
+SELECT * 
+FROM tbl_drinks
+WHERE LEFT(drink_name, 1) = 'Z';
+
+# 9)	Write a select statement to display the two records, record numbers 5 and 6, after you sort the records in the table in ascending order by calories.
+SELECT * 
+FROM tbl_drinks
+ORDER BY calories
+LIMIT 4, 2;
+
+# 10)	Select the drink name, cost, carbs and calories of all drinks that are neither red nor orange in color, displaying the result by descending order of drink name. I want to see the use of the Boolean operator NOT in the solution. You do not know the colors of any other drinks.
+SELECT * 
+FROM tbl_drinks
+WHERE drink_color NOT IN ('Red', 'Orange')
+ORDER BY drink_name DESC;

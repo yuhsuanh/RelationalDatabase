@@ -7,7 +7,7 @@ CREATE DATABASE db_drinks;
 USE db_drinks;
 
 -- set the environment variables
--- SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 0;
 
 
 -- drop the table if it exists
